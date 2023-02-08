@@ -30,8 +30,32 @@
 
 </head>
 
-<body>
+<body class="bg-secondary">
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-4 card m-auto p-5 text-center">
 
+                <!-- Form per impostare la lunghezza della pasw -->
+                <form action="#" method="POST" class="mb-5">
+                    <div class="form-group mb-3">
+                        <label for="passwordLength">Password Length</label>
+                        <input type="number" class="form-control" id="passwordLength" name="length" min="1" max="100"
+                            required />
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block" id="generatePassword">
+                        Generate Password
+                    </button>
+                </form>
+
+                <!-- Dove comparirà la pasw generata  -->
+                <div class="form-group" ->
+                    <label for="generatedPassword">Generated Password</label>
+                    <p class="form-control">Qui va la pasw generata</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
