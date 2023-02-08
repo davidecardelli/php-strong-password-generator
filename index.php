@@ -1,3 +1,18 @@
+<?php
+function generatePassword($length) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!?()[]{}+-=/*@#$%^&0*€_';
+    $charactersLength = strlen($characters);
+    $password = '';
+    for ($i = 0; $i < $length; $i++) {
+        $password .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $password;
+}
+
+$length = $_POST['length'] ?? '';
+$password = generatePassword($length);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,7 +48,7 @@
 <body class="bg-secondary">
     <div class="container">
         <div class="row mt-5">
-            <div class="col-4 card m-auto p-5 text-center">
+            <div class="col-5 card m-auto p-5 text-center">
 
                 <!-- Form per impostare la lunghezza della pasw -->
                 <form action="#" method="POST" class="mb-5">
@@ -49,8 +64,7 @@
 
                 <!-- Dove comparirà la pasw generata  -->
                 <div class="form-group" ->
-                    <label for="generatedPassword">Generated Password</label>
-                    <p class="form-control">Qui va la pasw generata</p>
+                    <p class="form-control"><strong>Generated Password:</strong> <?= $password ?></p>
                 </div>
 
             </div>
