@@ -1,14 +1,7 @@
 <?php
-
-require __DIR__ . '/function.php';
-
-$length = $_POST['length'] ?? '';
-
-if ($length) {
-    session_start();
-    $_SESSION['password'] = generatePassword($length);
-    header('Location: ./success.php');
-}
+session_start();
+if (isset($_SESSION['password'])) $password = $_SESSION['password'];
+else header('Location: ./index.php');
 ?>
 
 <!DOCTYPE html>
@@ -48,22 +41,10 @@ if ($length) {
         <div class="row mt-5">
             <div class="col-5 card m-auto p-5 text-center">
 
-                <!-- Form per impostare la lunghezza della pasw -->
-                <form action="#" method="POST" class="mb-5">
-                    <div class="form-group mb-3">
-                        <label for="passwordLength">Password Length</label>
-                        <input type="number" class="form-control" id="passwordLength" name="length" min="1" max="100"
-                            required />
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block" id="generatePassword">
-                        Generate Password
-                    </button>
-                </form>
-
-                <!-- Dove comparirà la pasw generata 
+                <!-- Dove comparirà la pasw generata  -->
                 <div class="form-group" ->
                     <p class="form-control"><strong>Generated Password:</strong> <?= $password ?></p>
-                </div> -->
+                </div>
 
             </div>
         </div>
