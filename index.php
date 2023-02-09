@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/functions.php';
+require __DIR__ . '/function.php';
 
 
 $length = $_POST['length'] ?? '';
